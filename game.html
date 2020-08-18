@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+       background-image:url("sn-rockpaper.jpg");
+	  }
+button{
+        height:50px;
+		width:500px;
+		position:absolute;
+		top:300px;
+		left:400px;
+		color:red;
+		font-size:25px;
+		}
+h1{
+    position:absolute;
+	top:200px;
+	left:490px;
+	}
+</style>
+</head>
+   <body>
+    <button type="button"><a href="index.html">Exit</a></button>
+     <h1><p>Thanks for Playing!!</p></h1>
+      <script>
+         var Continue = 0;
+         var computerScore = 0;
+         var userScore =0;
+         
+         var userChoice;
+         var computerChoice;
+         do {
+             alert("Choose 1 for ROCK" + "\nChoose 2 for PAPER" + "\nChoose 3 for SCISSOR");
+             var CompGuess = (Math.floor(Math.random() * 3) + 1);
+             if (CompGuess == 1) {
+                 computerChoice = "ROCK"
+             } else if (CompGuess == 2) {
+                 computerChoice = "PAPER"
+         
+             } else {
+                 computerChoice = "SCISSOR"
+             }
+         	
+         	var isChoiceValid = false;
+             while (isChoiceValid == false) {
+         
+                 var UserGuess = prompt("Enter a number");
+         
+                 if (UserGuess == 1) {
+                     isChoiceValid = true;
+                     userChoice = "ROCK"
+                 } else if (UserGuess == 2) {
+                     isChoiceValid = true;
+                     userChoice = "PAPER"
+         
+                 } else if (UserGuess == 3) {
+                     isChoiceValid = true;
+                     userChoice = "SCISSOR"
+                 }
+         
+             }
+         
+             if (UserGuess == CompGuess) {
+         
+                 alert("You picked "+userChoice+". Computer picked " + computerChoice+ "\nIt’s a tie."+"\n You: " + userScore +"\n Computer: "+computerScore);
+             } else if(CompGuess==1) {
+         		
+         		if(UserGuess == 2){
+         			userScore++;	
+                 alert("You picked "+userChoice+". Computer picked " + computerChoice+ "\nYou Win."+"\n You: " + userScore +"\n Computer: "+computerScore);
+         			
+         		}else {
+         			computerScore++;
+         			alert("You picked "+userChoice+". Computer picked" + computerChoice+ "\nComputer Win."+"\n You: " + userScore +"\n Computer: "+computerScore);
+         		}
+           }else if(CompGuess == 2){
+         		if(UserGuess == 1){
+         			computerScore++;	
+                 alert("You picked "+userChoice+". Computer picked " + computerChoice+ "\nComputer Win."+"\n You: " + userScore +"\n Computer: "+computerScore);
+         			
+         		}else {
+         			userScore++;
+         			alert("You picked "+userChoice+". Computer picked " + computerChoice+ "\nYou Win."+"\n You: " + userScore +"\n Computer: "+computerScore);
+         		}
+         		
+         	}else{
+         		
+         		if(UserGuess == 1){
+         			userScore++;	
+                 alert("You picked "+userChoice+". Computer picked " + computerChoice+ "\nYou Win."+"\n You: " + userScore +"\n Computer: "+computerScore);
+         			
+         		}else {
+         			computerScore++;
+         			alert("You picked "+userChoice+". Computer picked" + computerChoice+ "\nComputer Win."+"\n You: " + userScore +"\n Computer: "+computerScore);
+         		}
+         	}
+         
+          Continue = confirm("Do you want to play again");
+         } while (Continue == true);
+         
+         if(computerScore>userScore){
+         alert("Final Score:" + "\n You: " + userScore +"\n Computer: "+computerScore + "\nComputer Win!");
+         }else if(computerScore<userScore){
+         	alert("Final Score:" + "\n You: " + userScore +"\n Computer: "+computerScore + "\nYou Win!");
+         
+         }else{
+         	alert("Final Score:" + "\n You: " + userScore +"\n Computer: "+computerScore + "\nIt's a tie!");
+         
+         }      
+      </script>
+   </body>
+</html>
